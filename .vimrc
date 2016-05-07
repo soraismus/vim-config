@@ -78,14 +78,6 @@ cnoremap bb norm@b<CR>
 " set foldlevelstart=1
 " let javaScript_fold=1
 
-" Wed Feb  5 20:06:17 EST 2014
-" Source = Peter Rincker from
-" https://stackoverflow.com/questions/11858927/preventing-trailing-whitespace-when-using-vim-abbreviations
-func Eatchar(pat)
-	let c = nr2char(getchar(0))
-	return (c =~ a:pat) ? '' : c
-endfunc
-iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
 " The following should be temporary, as i
 " only applies to coughsyrup files.
 " The purpose of the line below is to allow cp<SPACE>f
@@ -120,10 +112,6 @@ set colorcolumn=80,115
 
 " Tue May 13 13:18:08 EDT 2014
 au BufRead,BufNewFile *.cough setfiletype coughsyrup
-
-"Thu Sep 18 14:25:54 EDT 2014
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Wed Nov 12 19:25:56 EST 2014
 nnoremap <leader>l :setlocal number!<CR>
